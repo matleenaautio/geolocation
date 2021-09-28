@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Weather from './Weather';
 
 function App() {
   const [lat, setLat] = useState(0);
@@ -26,11 +27,14 @@ function App() {
     return <p>Retrieving position..</p>
   } else {
     return (
-      <p>
-        Position:
-        {lat.toFixed(3)},
-        {lng.toFixed(3)}
-      </p>
+      <div style={{margin: '50px'}}>
+        <p>
+          Position:
+          {lat.toFixed(3)},
+          {lng.toFixed(3)}
+        </p>
+        <Weather lat={lat} lon={lng}/>
+      </div>
     );
   }
 
